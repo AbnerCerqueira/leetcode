@@ -14,6 +14,7 @@
 # Output: 21
 
 class Solution:
+    # minha primeira solução
     def reverse(self, x) :
         x = list(str(x))
         if len(x) == 1:
@@ -33,6 +34,22 @@ class Solution:
             for i in range(len(res)- 1, -1, -1):
                 res[i] = res[i - 1]
             res[0] = menos
+
+        res = int(''.join((map(str, res))))
+        return 0 if res < -2 ** 31 or res > 2 ** 31 - 1 else res
+    # segunda solução
+    def reverse2(self, x) :
+        x = list(str(x))
+
+        if len(x) == 1:
+            return int(x[0])
+        
+        res = x[::-1] # slicing
+
+        if res[-1] == '-':
+            for i in range(len(res)- 1, -1, -1):
+                res[i] = res[i - 1]
+            res[0] = '-'
 
         res = int(''.join((map(str, res))))
         return 0 if res < -2 ** 31 or res > 2 ** 31 - 1 else res
